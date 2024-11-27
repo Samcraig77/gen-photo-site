@@ -1,6 +1,5 @@
 :root {
     --sad: white;
-
 }
 
 *, *::after, *::before {
@@ -98,7 +97,25 @@ ul {
         text-align: center;
         box-shadow: 1px 1px 10px black, 
         -1px -1px 10px black;
+        display: inline-flex;
+        flex-direction: column;
         
+        
+        .x-btn {
+            color: white;
+            font-family: inherit; 
+            background: black;
+            border: none;
+            font-size: 20px;
+            
+            &:hover {
+                cursor: pointer;
+                color: black;
+                text-shadow: 1px 1px 3px whitesmoke, -1px -1px 1px whitesmoke;
+            }
+        }
+        
+
         .modal-img {
         max-width: 100vw;
         max-height: 90vh;
@@ -116,12 +133,15 @@ ul {
 }
  
 @media (min-width: 700px)  {
-    .photo-section {
-    grid-gap: 15px;
-    grid-template: repeat(auto-fit, minmax(100px, 1fr)) / repeat(auto-fit, minmax(400px, 1fr));
-    
-    
 
+    .photo-section {
+        grid-gap: 15px;
+        grid-template: repeat(auto-fit, minmax(100px, 1fr)) / repeat(auto-fit, minmax(400px, 1fr));
+    }
+
+    .large, .tall {
+        grid-column: span 2;
+        grid-row: span 1;
     }
 
     .photo-container {
@@ -129,14 +149,14 @@ ul {
         min-width: 100%;
     }
 
-    .modal-img {
-        
-        object-fit: cover;
-        
-        background-clip: none;
+
+    .pop-up {
+
+        .modal-img {
+            object-fit: cover;    
+            background-clip: none;
+        }
+
     }
-
-
-    
     
 }
