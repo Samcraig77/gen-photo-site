@@ -7,7 +7,6 @@ export const imgArray = [
     {
         src: './imgs/img2.jpg',
         desc: '2',
-        people: '',
         id: crypto.randomUUID(),
         style: ''
     },
