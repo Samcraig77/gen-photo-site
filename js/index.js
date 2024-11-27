@@ -4,9 +4,11 @@ const imgSection = document.getElementById('photo-section')
 const pictureModal = document.getElementById('modal-wrapper')
 const rdmBtn = document.getElementById('rdm-btn')
 
+
 document.addEventListener("click", e => {
     e.target.dataset.uuid ? displaySelectedImg(filterArray(e.target))  + console.log(filterArray(e.target)):
-    e.target === pictureModal ? popupDisplayToggle() : 
+    e.target === pictureModal  ? popupDisplayToggle() : 
+    [...e.target.classList].includes('x-btn') ? popupDisplayToggle() :
     e.target === rdmBtn ? imgSection.innerHTML = photoCardsArr.sort(() => Math.random() - .5).join('') 
     : ''
 })
