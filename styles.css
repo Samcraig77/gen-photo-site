@@ -1,0 +1,144 @@
+:root {
+    --sad: white;
+
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 10px;
+    z-index: 0;
+    font-family: "Charm", cursive;
+    text-align: center;
+}
+
+ul {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    word-wrap: normal;
+}
+
+.checkbox {
+    cursor: pointer;
+    align-items: center;
+    margin: 30px;
+}
+
+.photo-section {
+    display: grid;
+    grid-gap: 5px;
+    grid-auto-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-auto-rows: max-content;
+    grid-auto-flow: dense;
+    margin: 0 auto;
+    justify-content: center;
+    margin: 10px auto;
+    
+    .photo-container {
+        display: flex;
+        flex-direction: column;
+        border-radius: 15px;
+        align-items: center;
+        justify-content: center;
+        
+        
+        &:hover, &:active, &:focus {
+        box-shadow: -5px -3px 10px, 5px 3px 10px ;
+        z-index: 1;
+        }
+
+        .photo {
+            width: 100%;
+            min-height: 300px;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+    }
+
+    .tall {
+        grid-row: span 2;
+    }
+
+    .wide {
+        grid-column: span 2;
+    }
+
+    .large {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+}
+
+.modal-wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.479); 
+    display: flex;
+    align-items: center;
+    
+
+    .pop-up {
+        background-color: black;
+        justify-items: center;
+        margin: 0 auto;
+        z-index: 2;
+        text-align: center;
+        box-shadow: 1px 1px 10px black, 
+        -1px -1px 10px black;
+        
+        .modal-img {
+        max-width: 100vw;
+        max-height: 90vh;
+        margin: auto;
+        }
+
+        .photo-desc {
+            background-color: white;
+        }
+    }
+}
+
+.hidden {
+    display: none;
+}
+ 
+@media (min-width: 700px)  {
+    .photo-section {
+    grid-gap: 15px;
+    grid-template: repeat(auto-fit, minmax(100px, 1fr)) / repeat(auto-fit, minmax(400px, 1fr));
+    
+    
+
+    }
+
+    .photo-container {
+        min-height: max-content;
+        min-width: 100%;
+    }
+
+    .modal-img {
+        
+        object-fit: cover;
+        
+        background-clip: none;
+    }
+
+
+    
+    
+}
