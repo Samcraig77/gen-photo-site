@@ -13,8 +13,9 @@ document.addEventListener("click", e => {
 
 const photoCardsArr = imgArray.map(photo => {
     return `
-        <div class="photo-container ${photo.style}" tabindex="1" data-uuid="${photo.id}">
-            <img class="photo " src="${photo.src}" data-uuid="${photo.id}" alt="${photo.desc}"/>
+        <div class="photo-container ${randomizePictureDisplay(photo.style)}" tabindex="1" data-uuid="${photo.id}">
+            
+            <img class="photo " src="${photo.src}" data-uuid="${photo.id}" alt="${photo.desc}" loading="lazy"/>
             <div class="photo-info" >
                 
             </div>
@@ -23,18 +24,17 @@ const photoCardsArr = imgArray.map(photo => {
     })
 
 function filterArray(eventTarget) {
-    return imgArray.filter(photo => eventTarget.dataset.uuid === photo.id)[0]
+    return imgArray.find(photo => eventTarget.dataset.uuid === photo.id)
 }
 
-function renderImages() {
-   imgSection.innerHTML = photoCardsArr.join('')
-}
+
 
 function displaySelectedImg(i) {
     popupDisplayToggle()
     pictureModal.innerHTML = `
     <div class="pop-up">
-        <img class="modal-img" src="${i.src}" alt="one">
+        <button class="x-btn">X</button>
+        <img class="modal-img" src="${i.src}" alt="${i.desc}">
         <p class="photo-desc">${i.desc}</p>
         </div>`
 }
@@ -43,21 +43,20 @@ function popupDisplayToggle() {
     pictureModal.classList.toggle('hidden')
 }
 
-// function randomizePictureDisplay(style) {
+function randomizePictureDisplay(style) {
 
-//     const r = Math.floor(Math.random() * 3)
+    const r = Math.floor(Math.random() * 3)
 
-//     if ( r === 0) {
-//         style = ''
-//     } else if ( r === 1) {
-//         style = 'wide'
-//     } else if (r === 2) {
-//         style = 'tall'
-//     } else {
-//         style = 'large'
-//     }
+    r === 0 ? style = '' :
+    r === 1 ? style = 'wide' :
+    r === 2 ? style = 'tall' :
+    r === 3 ? style = 'large' : ''
 
-//     return style
-// }
+    return style
+}
+
+function renderImages() {
+   imgSection.innerHTML = photoCardsArr.join('')
+}
 
 renderImages()
