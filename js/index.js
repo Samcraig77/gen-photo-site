@@ -13,6 +13,7 @@ document.addEventListener("click", e => {
     : ''
 })
 
+
 const photoCardsArr = imgArray.map(photo => {
     return `
         <div class="photo-container ${randomizePictureDisplay(photo.style)}" tabindex="1" data-uuid="${photo.id}">
@@ -22,6 +23,7 @@ const photoCardsArr = imgArray.map(photo => {
 })
 function renderImages() {
    imgSection.innerHTML = photoCardsArr.join('')
+   initShuffle(photoCardsArr)
 }
 
 function filterArray(eventTarget) {
@@ -48,9 +50,20 @@ function randomizePictureDisplay(style) {
 
     r === 1 ? style = 'wide' :
     r === 2 ? style = 'tall' :
-    r === 3 ? style = 'large' : '' // Plug in random number, return value as picture style class, used in photoCardsArr
+    r === 3 ? style = 'large' : 
+    style = `` // Plug in random number, return value as picture style class, used in photoCardsArr
 
     return style
+}
+
+function initShuffle(arr) {
+
+    const arrShuffled = Array.from(arr)
+
+    setTimeout(() => {imgSection.innerHTML = arrShuffled}, 2000)
+    setTimeout(() => imgSection.innerHTML = arr.sort(() => Math.random() -.5).join(''))
+    setTimeout(() => {imgSection.innerHTML = arr.join('')}, 4000)
+    console.log(arrShuffled, arr)
 }
 
 
