@@ -13,24 +13,6 @@ body {
     text-align: center;
 }
 
-ul {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-    align-items: center;
-    flex-direction: column;
-    margin: auto;
-    justify-content: center;
-    text-align: center;
-    word-wrap: normal;
-}
-
-.checkbox {
-    cursor: pointer;
-    align-items: center;
-    margin: 30px;
-}
-
 .photo-section {
     display: grid;
     grid-gap: 5px;
@@ -56,7 +38,7 @@ ul {
         .photo {
             width: 100%;
             border-radius: 15px;
-            object-fit: cover;
+            object-fit: scale-down;
         }
     }
 
@@ -136,7 +118,7 @@ ul {
 
     .photo-section {
         grid-gap: 15px;
-        grid-template: repeat(auto-fit, minmax(100px, 1fr)) / repeat(auto-fit, minmax(400px, 1fr));
+        grid-template: repeat(auto-fit, minmax(200px, 1fr)) / repeat(auto-fit, minmax(400px, 1fr));
     }
 
     .large, .tall {
@@ -145,7 +127,6 @@ ul {
     }
 
     .photo-container {
-        min-height: max-content;
         min-width: 100%;
     }
 
