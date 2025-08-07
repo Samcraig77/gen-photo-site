@@ -60,7 +60,7 @@ function initShuffle(arr) {
 
     const arrShuffled = Array.from(arr)
 
-    setTimeout(() => {imgSection.innerHTML = arrShuffled}, 2000)
+    setTimeout(() => {imgSection.innerHTML = arrShuffled.join('')}, 2000)
     setTimeout(() => imgSection.innerHTML = arr.sort(() => Math.random() -.5).join(''))
     setTimeout(() => {imgSection.innerHTML = arr.join('')}, 4000)
     console.log(arrShuffled, arr)
