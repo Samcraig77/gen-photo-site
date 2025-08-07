@@ -16,7 +16,7 @@ body {
 .photo-section {
     display: grid;
     grid-gap: 5px;
-    grid-auto-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-auto-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-auto-rows: auto-fit;
     grid-auto-flow: dense;
     justify-content: center;
@@ -28,7 +28,7 @@ body {
         border-radius: 15px;
         align-items: center;
         justify-content: center;
-        
+        width: 100%;
         
         &:hover, &:active, &:focus {
         box-shadow: -5px -3px 10px, 5px 3px 10px ;
@@ -134,8 +134,7 @@ body {
     .pop-up {
 
         .modal-img {
-            object-fit: cover;    
-            background-clip: none;
+            object-fit: cover;
         }
 
     }

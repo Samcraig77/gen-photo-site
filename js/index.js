@@ -46,13 +46,12 @@ function popupDisplayToggle() {
 
 function randomizePictureDisplay(style) {
 
-    const r = Math.floor(Math.random() * 3) // Obtain random number 0-3
+    const r = Math.floor(Math.random() * 3) + 1// Obtain random number 0-3
 
     r === 1 ? style = 'wide' :
     r === 2 ? style = 'tall' :
-    r === 3 ? style = 'large' : 
-    style = `` // Plug in random number, return value as picture style class, used in photoCardsArr
-
+    r === 3 ? style = 'large' : ""
+    // style = `` // Plug in random number, return value as picture style class, used in photoCardsArr
     return style
 }
 
@@ -63,7 +62,7 @@ function initShuffle(arr) {
     setTimeout(() => {imgSection.innerHTML = arrShuffled.join('')}, 2000)
     setTimeout(() => imgSection.innerHTML = arr.sort(() => Math.random() -.5).join(''))
     setTimeout(() => {imgSection.innerHTML = arr.join('')}, 4000)
-    console.log(arrShuffled, arr)
+    
 }
 
 
